@@ -19,8 +19,15 @@ public class WebpageMaker {
 		}
 		dataScanner.close();
 		FileWriter fw = new FileWriter("output.html");
-		// todo: make this write into some kind of template
+		
+		// write first half of template
 		Scanner templateScanner = new Scanner(new File(templatePath));
+		String line = null;
+		while (! "<!--[[DATATABLE]]-->".equals(line)) {
+			line = templateScanner.nextLine();
+			fw.write(line);
+		}
+		
 		fw.write("<table>");
 		for (i = n - 1; i >= 0; i--) {
 			String[] row = data[i].split(",");
@@ -32,6 +39,14 @@ public class WebpageMaker {
 			fw.write("</tr>");
 		}
 		fw.write("</table>");
+		
+		// write second half of template
+		while (templateScanner.hasNextLine()) {
+			line = templateScanner.nextLine();
+			fw.write(line);
+		}
+		templateScanner.close();
+		
 		fw.close();
 	}
 	
