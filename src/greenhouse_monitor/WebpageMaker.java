@@ -25,10 +25,12 @@ public class WebpageMaker {
 		String line = null;
 		while (! "<!--[[DATATABLE]]-->".equals(line)) {
 			line = templateScanner.nextLine();
-			fw.write(line);
+			fw.write(line + "\n");
 		}
 		
+		// write data table
 		fw.write("<table>");
+		// todo: add table headers
 		for (i = n - 1; i >= 0; i--) {
 			String[] row = data[i].split(",");
 			fw.write("<tr>");
@@ -36,14 +38,14 @@ public class WebpageMaker {
 			fw.write("<td>" + row[0] + "</td>");
 			fw.write("<td>" + row[1] + "</td>");
 			fw.write("<td>" + row[2] + "</td>");
-			fw.write("</tr>");
+			fw.write("</tr>\n");
 		}
 		fw.write("</table>");
 		
 		// write second half of template
 		while (templateScanner.hasNextLine()) {
 			line = templateScanner.nextLine();
-			fw.write(line);
+			fw.write(line + "\n");
 		}
 		templateScanner.close();
 		
