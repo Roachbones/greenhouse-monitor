@@ -10,11 +10,11 @@ public class WebpageMaker {
 		String templatePath = "template.html";
 		System.out.println("hello world");
 		int n = 30;
-		String[] data = new String[n];
+		String[] dataLines = new String[n];
 		Scanner dataScanner = new Scanner(new File(dataPath));
 		int i = 0;
 		while (dataScanner.hasNextLine()) {
-			data[i] = dataScanner.nextLine();
+			dataLines[i] = dataScanner.nextLine();
 			i++;
 		}
 		dataScanner.close();
@@ -29,9 +29,8 @@ public class WebpageMaker {
 		}
 		
 		// write data table
-		// todo: add table headers
 		for (i = n - 1; i >= 0; i--) {
-			String[] row = data[i].split(",");
+			String[] row = dataLines[i].split(",");
 			fw.write("<tr>");
 			// todo: add colors with style attribute and tempColor/humidColor
 			fw.write("<td>" + row[0] + "</td>");
