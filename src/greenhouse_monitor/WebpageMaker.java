@@ -94,7 +94,7 @@ public class WebpageMaker {
 		
 		// test humidity colors
 		fw.write("<h2>humidities</h2>");
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i <= 100; i++) {
 			fw.write(String.format(
 					"<span style='background-color:%s'>%d</span> ",
 					humidColor(i), i
