@@ -52,18 +52,20 @@ public class WebpageMaker {
 	
 	// todo: make these pretty and useful gradients
 	public static String tempColor(int temp) {
-		if (temp > 80) {
-			return "#ee8888";
-		}
-		else if (temp < 50) {
-			return "#bbc0ee";
-		}
-		else {
-			return "#559966";
-		}
+		return String.format(
+				"#%02x%02x%02x",
+				Math.min(255, 3 * temp), // red
+				250 - Math.abs(temp - 70) * 2, // green
+				Math.max(0, 255 - 2 * temp) // blue
+		);
 	}
-	public static String humidColor(int temp) {
-		return "#333333";
+	public static String humidColor(int humid) {
+		return String.format(
+				"#%02x%02x%02x",
+				245, // red
+				245 - Math.max(0, 25 - humid)*3, // green
+				245 - Math.max(0, 25 - humid)*5 // blue
+		);
 	}
 	
 	public static void colorTest() throws IOException {
