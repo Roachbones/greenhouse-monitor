@@ -6,6 +6,7 @@ import java.io.*;
 public class WebpageMaker {
 
 	public static void main(String[] args) throws IOException {
+		colorTest();
 		String dataPath = "data.csv";
 		String templatePath = "template.html";
 		System.out.println("hello world");
@@ -63,6 +64,32 @@ public class WebpageMaker {
 	}
 	public static String humidColor(int temp) {
 		return "#333333";
+	}
+	
+	public static void colorTest() throws IOException {
+		String colorTestPath = "colortest.html";
+		FileWriter fw = new FileWriter(colorTestPath);
+		fw.write("<h1>color test</h1>");
+		
+		// test temperature colors
+		fw.write("<h2>temperatures</h2>");
+		for (int i = 0; i < 130; i++) {
+			fw.write(String.format(
+					"<span style='background-color:%s'>%d</span> ",
+					tempColor(i), i
+			));
+		}
+		
+		// test humidity colors
+		fw.write("<h2>humidities</h2>");
+		for (int i = 0; i < 100; i++) {
+			fw.write(String.format(
+					"<span style='background-color:%s'>%d</span> ",
+					humidColor(i), i
+			));
+		}
+		
+		fw.close();
 	}
 
 }
