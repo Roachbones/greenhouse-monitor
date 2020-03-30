@@ -33,7 +33,6 @@ public class WebpageMaker {
 		for (i = n - 1; i >= 0; i--) {
 			String[] row = dataLines[i].split(",");
 			fw.write("<tr>");
-			// todo: add colors with style attribute and tempColor/humidColor
 			fw.write("<td>" + row[0] + "</td>");
 			fw.write(String.format(
 					"<td style='background-color:%s;'>%s</td>",
@@ -58,7 +57,6 @@ public class WebpageMaker {
 		fw.close();
 	}
 	
-	// todo: make these pretty and useful gradients
 	public static String tempColor(int temp) {
 		return String.format(
 				"#%02x%02x%02x",
