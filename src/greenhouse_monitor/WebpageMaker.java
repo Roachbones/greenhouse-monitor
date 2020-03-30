@@ -6,10 +6,12 @@ import java.io.*;
 public class WebpageMaker {
 
 	public static void main(String[] args) throws IOException {
+		// update color test
 		colorTest();
+		
 		String dataPath = "data.csv";
 		String templatePath = "template.html";
-		System.out.println("hello world");
+		
 		int n = 30;
 		String[] dataLines = new String[n];
 		Scanner dataScanner = new Scanner(new File(dataPath));
@@ -55,6 +57,8 @@ public class WebpageMaker {
 		templateScanner.close();
 		
 		fw.close();
+		
+		System.out.println("All done.");
 	}
 	
 	public static String tempColor(int temp) {
@@ -79,6 +83,8 @@ public class WebpageMaker {
 	}
 	
 	public static void colorTest() throws IOException {
+		// outputs colortest.html,
+		// which demonstrates the tempColor and humidColor ranges.
 		String colorTestPath = "colortest.html";
 		FileWriter fw = new FileWriter(colorTestPath);
 		fw.write("<h1>color test</h1>");
