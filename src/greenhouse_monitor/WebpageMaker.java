@@ -35,8 +35,16 @@ public class WebpageMaker {
 			fw.write("<tr>");
 			// todo: add colors with style attribute and tempColor/humidColor
 			fw.write("<td>" + row[0] + "</td>");
-			fw.write("<td>" + row[1] + "</td>");
-			fw.write("<td>" + row[2] + "</td>");
+			fw.write(String.format(
+					"<td style='background-color:%s;'>%s</td>",
+					tempColor(Integer.parseInt(row[1])),
+					row[1]
+			));
+			fw.write(String.format(
+					"<td style='background-color:%s;'>%s</td>",
+					humidColor(Integer.parseInt(row[2])),
+					row[2]
+			));
 			fw.write("</tr>\n");
 		}
 		
