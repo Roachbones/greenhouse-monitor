@@ -58,6 +58,8 @@ public class WebpageMaker {
 	}
 	
 	public static String tempColor(int temp) {
+		// returns the hex color code for displaying a temperature.
+		// cold is blue, comfortable is green, hot is red.
 		return String.format(
 				"#%02x%02x%02x",
 				Math.min(255, 3 * temp), // red
@@ -66,6 +68,8 @@ public class WebpageMaker {
 		);
 	}
 	public static String humidColor(int humid) {
+		// returns the hex color code for displaying a humidity.
+		// less than 25 appears red. otherwise it's light grey
 		return String.format(
 				"#%02x%02x%02x",
 				245, // red
