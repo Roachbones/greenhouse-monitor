@@ -18,7 +18,7 @@ public class WebpageMaker {
 			i++;
 		}
 		dataScanner.close();
-		FileWriter fw = new FileWriter("output.html");
+		FileWriter fw = new FileWriter("index.html");
 		
 		// write first half of template
 		Scanner templateScanner = new Scanner(new File(templatePath));
